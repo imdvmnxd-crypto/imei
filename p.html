@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Buka IMEI iPhone Inter</title>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --secondary: #f1f5f9;
+  --dark: #0f172a;
+  --light: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f8fafc;
+  color: var(--dark);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.market {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input, select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  font-size: 15px;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .market {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <h1>Jasa Buka IMEI iPhone Inter</h1>
+  <p>Resmi • Aman • Proses Cepat • Garansi</p>
+  <p>by Abdul Mustopa</p>
+</header>
+
+<section class="market">
+
+  <!-- PRODUK -->
+  <div class="card">
+    <span class="badge">Best Seller</span>
+    <h2>Buka IMEI iPhone Inter</h2>
+    <p class="price">Mulai 300k</p>
+
+    <ul>
+      <li>Support iPhone X – iPhone 15 Pro Max</li>
+      <li>Tidak perlu bongkar HP</li>
+      <li>IMEI resmi terdaftar Kemenperin</li>
+      <li>Proses 1–3 hari kerja</li>
+      <li>Garansi uang kembali</li>
+    </ul>
+  </div>
+
+  <!-- FORM -->
+  <div class="card">
+    <h2>Form Pemesanan</h2>
+
+    <form id="orderForm">
+      <div>
+        <label>Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Nama kamu" required>
+      </div>
+
+      <div>
+        <label>Nomor WhatsApp</label>
+        <input type="text" id="wa" placeholder="08xxxxxxxxxx" required>
+      </div>
+
+      <div>
+        <label>Tipe iPhone</label>
+        <select id="tipe">
+          <option>iPhone X / XS / XR</option>
+          <option>iPhone 11 Series</option>
+          <option>iPhone 12 Series</option>
+          <option>iPhone 13 Series</option>
+          <option>iPhone 14 Series</option>
+          <option>iPhone 15 Series</option>
+
+        </select>
+      </div>
+
+      <div>
+        <label>Nomor IMEI</label>
+        <input type="text" id="imei" placeholder="15 digit IMEI" required>
+      </div>
+
+      <button type="submit">Pesan via WhatsApp</button>
+    </form>
+  </div>
+
+</section>
+
+<div class="footer">
+  © 2025 Jasa Unlock IMEI • Aman & Terpercaya
+</div>
+
+</div>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const wa = document.getElementById("wa").value;
+  const tipe = document.getElementById("tipe").value;
+  const imei = document.getElementById("imei").value;
+
+  const adminWA = "6285179575234"; // GANTI NOMOR WA ADMIN
+
+  const pesan = `
+Halo Admin, saya mau order jasa buka IMEI iPhone.
+
+Nama: ${nama}
+No WA: ${wa}
+Tipe iPhone: ${tipe}
+IMEI: ${imei}
+
+Mohon info harga & proses selanjutnya. Terima kasih 🙏
+  `;
+
+  const url = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
+  window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
