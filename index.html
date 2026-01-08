@@ -8,89 +8,137 @@
 <style>
 :root {
   --primary: #2563eb;
-  --secondary: #f1f5f9;
   --dark: #0f172a;
   --light: #ffffff;
+  --gray: #64748b;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 body {
   margin: 0;
   background: #f8fafc;
   color: var(--dark);
+  scroll-behavior: smooth;
 }
 
+/* ===== NAVBAR ===== */
+nav {
+  position: sticky;
+  top: 0;
+  background: #020617;
+  padding: 14px 20px;
+  z-index: 20;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #93c5fd;
+}
+
+/* ===== LAYOUT ===== */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 20px;
 }
 
+/* ===== HERO ===== */
 header {
   background:
-    linear-gradient(
-      135deg,
-      rgba(37, 99, 235, 0.85),
-      rgba(30, 64, 175, 0.85)
-    ),
+    linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)),
     url("barca.png");
-  
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   color: white;
-  padding: 60px 30px;
-  border-radius: 16px;
-  margin-bottom: 30px;
+  padding: 90px 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-
 header h1 {
+  font-size: 38px;
   margin: 0;
-  font-size: 32px;
 }
 
 header p {
-  margin-top: 10px;
+  margin-top: 14px;
   opacity: 0.9;
+  font-size: 16px;
 }
 
+/* ===== SECTION ===== */
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+section p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ===== GRID ===== */
 .market {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 30px;
 }
 
+/* ===== CARD ===== */
 .card {
   background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
 }
 
-.card h2 {
-  margin-top: 0;
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .badge {
   display: inline-block;
   background: #dcfce7;
   color: #166534;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-size: 13px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .price {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: var(--primary);
+  margin: 12px 0;
 }
 
 ul {
@@ -99,12 +147,14 @@ ul {
 
 ul li {
   margin-bottom: 8px;
+  color: var(--gray);
 }
 
+/* ===== FORM ===== */
 form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 label {
@@ -113,8 +163,8 @@ label {
 }
 
 input, select {
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 14px;
   border: 1px solid #cbd5f5;
   font-size: 15px;
 }
@@ -123,11 +173,11 @@ button {
   background: var(--primary);
   color: white;
   border: none;
-  padding: 14px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 16px;
   font-size: 16px;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
 }
 
@@ -135,14 +185,29 @@ button:hover {
   background: #1e40af;
 }
 
-.footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 14px;
+button.loading {
   opacity: 0.7;
+  pointer-events: none;
 }
 
+/* ===== FOOTER ===== */
+.footer {
+  margin: 60px 0 30px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray);
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  nav ul {
+    gap: 16px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
   .market {
     grid-template-columns: 1fr;
   }
@@ -152,6 +217,14 @@ button:hover {
 
 <body>
 
+<nav>
+  <ul>
+    <li><a href="#tentang">Tentang Kita</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#pesan">Pesan</a></li>
+  </ul>
+</nav>
+
 <div class="container">
 
 <header>
@@ -160,13 +233,23 @@ button:hover {
   <p>by Abdul Mustopa</p>
 </header>
 
-<section class="market">
+<!-- TENTANG KITA -->
+<section id="tentang">
+  <h2>Tentang Kita</h2>
+  <p>
+    Kami adalah penyedia jasa buka IMEI iPhone inter yang telah membantu ratusan pelanggan
+    di seluruh Indonesia. Proses dilakukan secara resmi, aman, tanpa bongkar perangkat,
+    dan IMEI terdaftar di database Kemenperin.
+  </p>
+</section>
 
-  <!-- PRODUK -->
+<!-- LAYANAN -->
+<section id="layanan" class="market">
+
   <div class="card">
     <span class="badge">Best Seller</span>
     <h2>Buka IMEI iPhone Inter</h2>
-    <p class="price">Mulai 300k</p>
+    <p class="price">Mulai 300K</p>
 
     <ul>
       <li>Support iPhone X – iPhone 15 Pro Max</li>
@@ -178,7 +261,7 @@ button:hover {
   </div>
 
   <!-- FORM -->
-  <div class="card">
+  <div class="card" id="pesan">
     <h2>Form Pemesanan</h2>
 
     <form id="orderForm">
@@ -201,7 +284,6 @@ button:hover {
           <option>iPhone 13 Series</option>
           <option>iPhone 14 Series</option>
           <option>iPhone 15 Series</option>
-
         </select>
       </div>
 
@@ -210,7 +292,7 @@ button:hover {
         <input type="text" id="imei" placeholder="15 digit IMEI" required>
       </div>
 
-      <button type="submit">Pesan via WhatsApp</button>
+      <button type="submit" id="btnOrder">Pesan via WhatsApp</button>
     </form>
   </div>
 
@@ -223,32 +305,61 @@ button:hover {
 </div>
 
 <script>
+/* ===== ANIMASI SCROLL ===== */
+const cards = document.querySelectorAll(".card");
+
+function reveal() {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      card.classList.add("show");
+    }
+  });
+}
+window.addEventListener("scroll", reveal);
+reveal();
+
+/* ===== FORM SUBMIT ===== */
 document.getElementById("orderForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const nama = document.getElementById("nama").value;
-  const wa = document.getElementById("wa").value;
+  const nama = document.getElementById("nama").value.trim();
+  const wa = document.getElementById("wa").value.trim();
   const tipe = document.getElementById("tipe").value;
-  const imei = document.getElementById("imei").value;
+  const imei = document.getElementById("imei").value.trim();
+  const btn = document.getElementById("btnOrder");
 
-  const adminWA = "6285179575234"; // GANTI NOMOR WA ADMIN
+  if (!/^\d{15}$/.test(imei)) {
+    alert("IMEI harus 15 digit angka!");
+    return;
+  }
+
+  btn.classList.add("loading");
+  btn.innerText = "Menghubungkan ke WhatsApp...";
+
+  const adminWA = "6285179575234"; // GANTI NO ADMIN
 
   const pesan = `
-Halo Admin, saya mau order jasa buka IMEI iPhone.
+Halo Admin, saya ingin order jasa buka IMEI iPhone.
 
 Nama: ${nama}
 No WA: ${wa}
 Tipe iPhone: ${tipe}
 IMEI: ${imei}
 
-Mohon info harga & proses selanjutnya. Terima kasih 🙏
+Mohon info harga & proses. Terima kasih 🙏
   `;
 
-  const url = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
-  window.open(url, "_blank");
+  setTimeout(() => {
+    window.open(
+      `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`,
+      "_blank"
+    );
+    btn.classList.remove("loading");
+    btn.innerText = "Pesan via WhatsApp";
+  }, 800);
 });
 </script>
 
 </body>
 </html>
-
