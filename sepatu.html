@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Cuci Sepatu Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #2563eb, #facc15);
+  color: white;
+  padding: 55px 20px;
+  text-align: center;
+  animation: blurDown 1s ease;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  opacity: 0.95;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 20px;
+}
+
+/* PRODUCT CARD */
+.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 45px rgba(37,99,235,.12);
+  animation: blurUp 1s ease;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 16px;
+  transition: transform .4s;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
+
+.product-info h2 {
+  margin-top: 0;
+  font-size: 1.9rem;
+}
+
+.price {
+  font-size: 1.6rem;
+  color: #2563eb;
+  font-weight: 700;
+  margin: 12px 0;
+}
+
+.badges span {
+  display: inline-block;
+  background: #eff6ff;
+  color: #1e40af;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* FORM */
+form {
+  margin-top: 25px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #c7d2fe;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+input[type="file"] {
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+.note {
+  font-size: .85rem;
+  color: #64748b;
+  margin-top: -10px;
+  margin-bottom: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2563eb, #facc15);
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(250,204,21,.45);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: .9rem;
+  color: #64748b;
+}
+
+/* ANIMATION */
+@keyframes blurUp {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes blurDown {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+  .product {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Jasa Cuci Sepatu Premium</h1>
+  <p>Putih Kembali • Wangi • Pickup & Delivery</p>
+</header>
+
+<div class="container">
+  <div class="product">
+
+    <img src="https://images.unsplash.com/photo-1528701800489-20be3c1ea4a3" alt="Cuci Sepatu">
+
+    <div class="product-info">
+      <h2>Cuci Sepatu All Brand</h2>
+      <div class="price">Mulai Rp30.000</div>
+
+      <div class="badges">
+        <span>Deep Clean</span>
+        <span>Unyellowing</span>
+        <span>Pickup Delivery</span>
+      </div>
+
+      <form onsubmit="kirimWA(event)">
+        <label>Nama</label>
+        <input type="text" id="nama" placeholder="Nama lengkap" required>
+
+        <label>Jenis Sepatu</label>
+        <select id="jenis">
+          <option>Sneakers</option>
+          <option>Sepatu Sekolah</option>
+          <option>Sepatu Kulit</option>
+          <option>Boots</option>
+          <option>Canvas</option>
+        </select>
+
+        <label>Paket Cuci</label>
+        <select id="paket">
+          <option>Fast Clean</option>
+          <option>Deep Clean</option>
+          <option>Unyellowing</option>
+          <option>Repaint / Custom</option>
+        </select>
+
+        <label>Upload Foto Sepatu</label>
+        <input type="file" id="foto" accept="image/*">
+        <div class="note">*Foto akan dikirim manual setelah chat WhatsApp terbuka</div>
+
+        <label>Layanan</label>
+        <select id="layanan">
+          <option>Datang ke Outlet</option>
+          <option>Pickup & Delivery</option>
+        </select>
+
+        <label>Alamat Pickup (jika pickup)</label>
+        <textarea id="alamat" rows="3" placeholder="Tulis alamat lengkap"></textarea>
+
+        <button type="submit">Pesan via WhatsApp</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 Jasa Cuci Sepatu • Saddamh In Charge
+</footer>
+
+<script>
+function kirimWA(e){
+  e.preventDefault();
+
+  const nama = document.getElementById('nama').value;
+  const jenis = document.getElementById('jenis').value;
+  const paket = document.getElementById('paket').value;
+  const layanan = document.getElementById('layanan').value;
+  const alamat = document.getElementById('alamat').value || '-';
+
+  const noWA = "6282228150305"; // GANTI NOMOR WA
+  const pesan = `Halo, saya mau cuci sepatu 👟%0A%0A
+Nama: ${nama}%0A
+Jenis Sepatu: ${jenis}%0A
+Paket: ${paket}%0A
+Layanan: ${layanan}%0A
+Alamat Pickup: ${alamat}%0A%0A
+Saya akan kirim foto sepatu setelah ini.`;
+
+  window.open(`https://wa.me/${noWA}?text=${pesan}`, '_blank');
+}
+</script>
+
+</body>
+</html>
